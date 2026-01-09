@@ -9,6 +9,35 @@
             margin: 0;
             background-color: #F4F6F8;
         }
+/* ===== MODAL KADIV ===== */
+.modal-kadiv {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-kadiv-content {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 360px;
+  animation: zoom 0.3s ease;
+}
+
+.close-kadiv {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+}
+/* batas */
 .kadiv-card {
   width: 240px;
   background: white;
@@ -225,7 +254,7 @@
 
           <!-- Kadep Sekarang -->
         <div class="kadiv-card" onclick="openKadiv()">
-            <img src="img/orang.png" alt="Kadiv Kaderisasi">
+            <img src="img/Abdimas_Yoga.png" alt="Kadiv Kaderisasi">
             <h4>Nama Kepala Divisi</h4>
             <p><b>Periode:</b> 2025–2026</p>
           </div>
@@ -272,20 +301,21 @@
             <h3>Eka Aprilia</h3>
             <p><b>Periode:</b> 2017–2018</p>
         </div>
-        <div class="modal" id="kadivModal">
-  <div class="modal-content">
-    <span class="close" onclick="closeKadiv()">&times;</span>
 
-    <img src="img/orang.png" class="modal-img">
+        <div class="modal-kadiv" id="kadivModal" onclick="closeKadiv()">
+  <div class="modal-kadiv-content" onclick="event.stopPropagation()">
+    <span class="close-kadiv" onclick="closeKadiv()">&times;</span>
+
+    <img src="img/Abdimas_Yoga.png" class="modal-img">
 
     <h3>Nama Kepala Divisi</h3>
-    <p><strong>Jabatan:</strong> Kepala Divisi Kaderisasi</p>
     <p><strong>Angkatan:</strong> 2022</p>
-    <p><strong>Periode</strong> 2025-2026</p>
-    <p><strong>Moto:</strong>asmkdasndam</p>
+    <p><strong>Periode:</strong> 2025–2026</p>
+    <p><strong>Moto:</strong> asmkdasndam</p>
   </div>
 </div>
-    </div>
+
+
 </section>
 
 <!--Dokume kegiatan-->
@@ -347,7 +377,6 @@ function openKadiv() {
 function closeKadiv() {
   document.getElementById("kadivModal").style.display = "none";
 }
-
 // klik area gelap untuk menutup
 window.onclick = function(event) {
   const modal = document.getElementById("kadivModal");
@@ -356,5 +385,14 @@ window.onclick = function(event) {
   }
 }
 </script>
+
+<script>
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    closeKadiv();
+  }
+});
+</script>
+
 </body>
 </html>
