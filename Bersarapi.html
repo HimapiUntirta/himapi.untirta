@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+    <title>Divisi Kaderisasi | HIMAPI</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F4F6F8;
+      margin: 0;
+    }
+    
+        header {
+            background-color: #0A2540;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px 30px;
+        }
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: white;
+    }
+    h2{
+      font-size: 35px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1E88E5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+/* like */
+.reaction-box {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.react-btn {
+  border: none;
+  background: #F4F6F8;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.react-btn:hover {
+  background: #1E88E5;
+  color: white;
+}
+
+.share {
+  background: #0A2540;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+<header>
+    <h1>Berita</h1>
+    <p>Himpunan Mahasiswa Perikanan (HIMAPI)</p>
+</header>
+<div class="reaction-box">
+
+  <button onclick="like()" class="react-btn">
+    👍 <span id="likeCount">0</span>
+  </button>
+
+  <button onclick="dislike()" class="react-btn">
+    👎 <span id="dislikeCount">0</span>
+  </button>
+
+  <button onclick="shareBerita()" class="react-btn share">
+    🔗 Share
+  </button>
+
+</div>
+
+<div class="content">
+  <h2>Peringati Hari Nelayan Nasional Himapi Untirta Gelar BERSERAPI</h2>
+  <img src="Galeri/bersarapiPR.png" alt="Pelantikan HIMAPI">
+
+  
+<p>Himpunan Mahasiswa Ilmu Perikanan (Himapi) Universitas Sultan Ageng Tirtayasa (Untirta) sukses menggelar Berkah Sehat Ramadan Bersama Himapi (BERSERAPI) dengan mengusung tema “Menjalin Silaturahmi, Kokohkan Hati, dan Berbagi Menuju Ramadhan yang Sehat Bersama HIMAPI”. Acara ini bertujuan menyejahterakan masyarakat desa Tanggul Indah yang mayoritas nelayan sekaligus memperingati Hari Nelayan Nasional yang jatuh pada Kamis lalu. (12/4)</p>
+<p>Pelaksanaan acara ini berlangsung sukses yang berlangsung pada tanggal 8-9 April di Masjid Jami Al-Falah dan Lapangan Desa Tanggul Indah, Serang, Banten. Hari Pertama dilakukan pembukaan acara serta lomba kerohanian anak-anak, dilanjutkan dengan edukasi manfaat konsumsi ikan, ceramah, lalu tadarus bersama seraya menungggu buka puasa bersama Ustad Ujang. Kemudian pada hari kedua diadakan santunan anak yatim, Pemeriksaan kesehatan, Himapi berbagi, dan acara penutupan.</p>
+<p>Ketua pelaksana BERSERAPI, Fajar Ramadhan, mengungkapkan sasaran untuk acara ini adalah warga pesisir pantai (nelayan), anak-anak kecil, anak yatim piatu, dan masyarakat sekitar yang kurang mampu. Acara tersebut dihadiri oleh senior Himapi, dosen ilmu perikanan, dan wakil dekan 3 fakultas pertanian.</p>
+<p>“Saya berharap setelah diadakannya kegiatan ini dapat menumbuhkan masyarakat untuk gemar dalam konsumsi ikan, karena ikan baik bagi kesehatan tubuh dan perkembangan otak anak. Terlebih warga di pesisir bisa lebih menjaga diri agar terhindar dari berbagai macam penyakit, dan mengembangkan minat baca serta kreativitas bagi anak-anak di wilayah pesisir pantai desa tanggul indah,” ungkapnya</p>
+<p>Ketua Umum Himapi, Rubi Maulana mengungkapkan sangat senang karena BERSERAPI merupakan acara pertama Himapi dalam periode tahun ini.</p>
+<p>“(Saya) senang karena (ini) merupakan acara pertama Himapi dalam periode tahun ini. Alhamdulillah, acara ini mendapatkan banyak antusias dari masyarakat Desa Tanggul Indah,” ujarnya.</p>
+<p>Ia berharap dengan adanya acara kemarin masyarakat Desa Tanggul indah mendapatkan ilmu yang bermanfaat terkait spesifikasi nilai gizi dari beberapa komoditas perikanan dan dapat menjaga kesehatan dirinya, serta dapat menjaga silaturahminya antar masyarakat.</p>
+<p>Koordinasi Acar, Faradila, berharap generasi penerus bangsa dapat gemar makan ikan karena ikan mengandung banyak protein yang sangat bermanfaat bagi pertumbuhan anak.</p>
+<p>“Setelah diadakannya kegiatan ini, generasi penerus bangsa ini gemar konsumsi ikan karena ikan mengandung banyak protein yang sangat bermanfaat bagi pertumbuhan anak. Kami juga berharap, anak-anak di Desa Tanggul Indah tersebut bisa lebih kreatif dan semakin gemar membaca buku-buku agar mereka mendapatkan banyak pengetahuan,” harapnya.</p>
+
+
+  <a href="index.html" class="back">← Kembali ke Beranda</a>
+</div>
+
+<!-- java -->
+ <script>
+const beritaID = "berita1"; // ganti tiap halaman
+
+let likeCount = localStorage.getItem(beritaID + "_like") || 0;
+let dislikeCount = localStorage.getItem(beritaID + "_dislike") || 0;
+let reacted = localStorage.getItem(beritaID + "_reacted");
+
+document.getElementById("likeCount").innerText = likeCount;
+document.getElementById("dislikeCount").innerText = dislikeCount;
+
+function like() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  likeCount++;
+  localStorage.setItem(beritaID + "_like", likeCount);
+  localStorage.setItem(beritaID + "_reacted", "like");
+
+  document.getElementById("likeCount").innerText = likeCount;
+}
+
+function dislike() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  dislikeCount++;
+  localStorage.setItem(beritaID + "_dislike", dislikeCount);
+  localStorage.setItem(beritaID + "_reacted", "dislike");
+
+  document.getElementById("dislikeCount").innerText = dislikeCount;
+}
+
+function shareBerita() {
+  const url = window.location.href;
+
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    alert("Link berita disalin!");
+  }
+}
+</script>
+
+</body>
+</html>

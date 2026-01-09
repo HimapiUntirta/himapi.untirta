@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+    <title>Divisi Kaderisasi | HIMAPI</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F4F6F8;
+      margin: 0;
+    }
+    
+        header {
+            background-color: #0A2540;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px 30px;
+        }
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: white;
+    }
+    h2{
+      font-size: 35px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1E88E5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+/* like */
+.reaction-box {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.react-btn {
+  border: none;
+  background: #F4F6F8;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.react-btn:hover {
+  background: #1E88E5;
+  color: white;
+}
+
+.share {
+  background: #0A2540;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+<header>
+    <h1>Berita</h1>
+    <p>Himpunan Mahasiswa Perikanan (HIMAPI)</p>
+</header>
+<div class="reaction-box">
+
+  <button onclick="like()" class="react-btn">
+    👍 <span id="likeCount">0</span>
+  </button>
+
+  <button onclick="dislike()" class="react-btn">
+    👎 <span id="dislikeCount">0</span>
+  </button>
+
+  <button onclick="shareBerita()" class="react-btn share">
+    🔗 Share
+  </button>
+
+</div>
+
+<div class="content">
+  <h2>Himapi Gelar Geber Pantai sebagai Bentuk Peduli Alam</h2>
+  <img src="Galeri/geberpantai.png" alt="Pelantikan HIMAPI">
+
+  
+<p>Himpunan Mahasiswa Perikanan (Himapi) Universitas Sultan Ageng Tirtayasa (Untirta) telah menggelar Gerakan Bersih (Geber) Pantai pada (24/6) di pantai Lagundi, Carita. Acara ini merupakan bentuk kepedulian Himapi terhadap pesisir pantai.</p>
+<p>Putri Yohana Sihombing, sebagai Ketua Pelaksana. Ia mengungkapkan acara ini merupakan bentuk peringatan hari laut sedunia.</p>
+<p>“Geber Pantai merupakan kegiatan untuk menjaga kelestarian lingkungan pesisir pantai, dimana acara Geber pantai ini sekaligus memperingati hari laut sedunia pada tanggal 8 Juni lalu,” ungkap Putri.
+Putri mengatakan dalam pelaksanaannya terdapat sedikit kendala.</p>
+<p>“Di daerah pantai tersebut tidak ada Tempat Pembuangan Sampah (TPS), maka dari itu kami membuangnya dengan cara menguburkan sampah-sampah di lokasi tersebut,” sebutnya.</p>
+<p>Muhamad Raihan Al Fath, Ketua Umum Himapi, mengatakan acara ini bertujuan untuk meningkatkan partisipasi masyarakat akan pengendalian pencemaran laut.</p>
+<p>“Dengan tujuan agar meningkatkan kepedulian dan partisipasi masyarakat dalam mengendalikan pencemaran pesisir dan laut, terutama yang bersumber dari sampah plastik,” tutur Raihan.</p>
+<p>Tidak hanya kegiatan pembersihan pantai, Raihan, mengatakan bahwa beberapa cara dilakukan untuk membentuk kepedulian masyarakat terhadap pantai dan laut.</p>
+<p>“Ada beberapa cara yang kita lakukan untuk masyarakat agar lebih peduli terhadap lingkungan pesisir pantai dari sampah, salah satunya dengan mengadakan kegiatan edukasi melalui webinar yang bekerja sama dengan Asosiasi Daur Ulang Plastik Indonesia (Adupi),” ujarnya.</p>
+  <a href="index.html" class="back">← Kembali ke Beranda</a>
+</div>
+
+<!-- java -->
+ <script>
+const beritaID = "berita1"; // ganti tiap halaman
+
+let likeCount = localStorage.getItem(beritaID + "_like") || 0;
+let dislikeCount = localStorage.getItem(beritaID + "_dislike") || 0;
+let reacted = localStorage.getItem(beritaID + "_reacted");
+
+document.getElementById("likeCount").innerText = likeCount;
+document.getElementById("dislikeCount").innerText = dislikeCount;
+
+function like() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  likeCount++;
+  localStorage.setItem(beritaID + "_like", likeCount);
+  localStorage.setItem(beritaID + "_reacted", "like");
+
+  document.getElementById("likeCount").innerText = likeCount;
+}
+
+function dislike() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  dislikeCount++;
+  localStorage.setItem(beritaID + "_dislike", dislikeCount);
+  localStorage.setItem(beritaID + "_reacted", "dislike");
+
+  document.getElementById("dislikeCount").innerText = dislikeCount;
+}
+
+function shareBerita() {
+  const url = window.location.href;
+
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    alert("Link berita disalin!");
+  }
+}
+</script>
+
+</body>
+</html>
