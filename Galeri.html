@@ -52,18 +52,24 @@ function closeLightbox() {
 </script>
 </body>
 <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F4F6F8;
+      margin: 0;
+    }
  header {
             background-color: #0A2540;
             color: white;
             padding: 20px;
             text-align: center;
+            background-size: contain;
         }
         section {
             padding: 40px 30px;
         }
 
 .galeri-page {
-  padding: 120px 40px 40px;
+  padding: 40px 40px 40px;
 }
 
 .galeri-page h3 {
@@ -89,6 +95,8 @@ function closeLightbox() {
 .galeri-grid img:hover {
   transform: scale(1.05);
 }
+
+
 /* ===== LIGHTBOX ===== */
 #lightbox {
     position: fixed;
