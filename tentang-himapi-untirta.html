@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+    <title>Divisi Kaderisasi | HIMAPI</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F4F6F8;
+      margin: 0;
+    }
+    
+        header {
+            background-color: #0A2540;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            padding: 40px 30px;
+        }
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      color: white;
+    }
+    h2{
+      font-size: 35px;
+    }
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #1E88E5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+/* like */
+.reaction-box {
+  display: flex;
+  gap: 15px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.react-btn {
+  border: none;
+  background: #F4F6F8;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.react-btn:hover {
+  background: #1E88E5;
+  color: white;
+}
+
+.share {
+  background: #0A2540;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+<header>
+    <h1>Tentang</h1>
+    <p>Himpunan Mahasiswa Perikanan UNTIRTA (HIMAPI)</p>
+</header>
+
+</div>
+
+<div class="content">
+  <h2>Tentang Himapi Untirta</h2>
+
+
+  <p>
+            HIMAPI UNTIRTA adalah Salah Satu organisasi kemahasiswaan di
+Fakultas Pertanian Universitas Sultan Ageng Tirtayasa Tingkat Jurusan yang
+sah, berdaulat, dan merupakan kelengkapan struktural Fakultas Pertanian
+Universitas Sultan Ageng Tirtayasa .
+        </p>
+
+        <h3>Visi</h3>
+        <p>
+            HIMAPI Sebagai wadah kolaborasi dan pengembangan keprofesian 
+            antar mahasiswa Ilmu Perikanan yang memberikan dampak bagi 
+            kampus dan masyarakat
+        </p>
+
+        <h3>Misi</h3>
+        <ul>
+            <li>Mencerminkan karakter dan semangat kolaboratif 
+                di mahasiswa ilmu perikanan yang bertanggung jawab dan profesional</li>
+            <li>Meningkatkan kepedulian sosial dan lingkungan sebagai bentuk 
+                kontribusi nyata mahasiswa Ilmu Perikanan terhadap lingkungan
+                kampus dan masyarakat</li>
+            <li>Menjalin komunikasi yang baik serta advokasi antara mahasiswa 
+                Ilmu Perikanan dan civitas akademika</li>
+        </ul>
+
+  <a href="index.html" class="back">← Kembali ke Beranda</a>
+</div>
+
+<!-- java -->
+ <script>
+const beritaID = "berita1"; // ganti tiap halaman
+
+let likeCount = localStorage.getItem(beritaID + "_like") || 0;
+let dislikeCount = localStorage.getItem(beritaID + "_dislike") || 0;
+let reacted = localStorage.getItem(beritaID + "_reacted");
+
+document.getElementById("likeCount").innerText = likeCount;
+document.getElementById("dislikeCount").innerText = dislikeCount;
+
+function like() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  likeCount++;
+  localStorage.setItem(beritaID + "_like", likeCount);
+  localStorage.setItem(beritaID + "_reacted", "like");
+
+  document.getElementById("likeCount").innerText = likeCount;
+}
+
+function dislike() {
+  if (reacted) return alert("Kamu sudah memberikan reaksi");
+
+  dislikeCount++;
+  localStorage.setItem(beritaID + "_dislike", dislikeCount);
+  localStorage.setItem(beritaID + "_reacted", "dislike");
+
+  document.getElementById("dislikeCount").innerText = dislikeCount;
+}
+
+function shareBerita() {
+  const url = window.location.href;
+
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(url);
+    alert("Link berita disalin!");
+  }
+}
+</script>
+
+</body>
+</html>
