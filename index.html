@@ -25,27 +25,26 @@
 <body>
 
     <!-- NAVBAR -->
-  <header>
+  <header>  
+  <div class="navbar">
     <div class="nav-left">
       <img src="img/LOGO_HIMAPI.png" class="logo">
     </div>
 
     <div class="nav-center">
-      <h1>HIMAPI UNTIRTA</h1>
-<p>Himpunan Mahasiswa Perikanan Universitas Sultan Ageng Tirtayasa</p>
-
-
+      <h2>HIMAPI UNTIRTA</h2>
+      <p>Himpunan Mahasiswa Perikanan Universitas Sultan Ageng Tirtayasa</p>
     </div>
+
     <nav class="nav-menu">
       <a href="#beranda">Beranda</a>
       <a href="#tentang">Tentang</a>
       <a href="#struktur">Struktur</a>
       <a href="#program">Program Kerja</a>
       <a href="#berita">Berita</a>
-      <a href="#Galeri">Galeri</a>
+      <a href="#galeri">Galeri</a>
       <a href="#kontak">Kontak</a>
-   </nav>
-    </div>
+    </nav>
   </div>
 </header>
 
@@ -492,62 +491,85 @@ h1, h2, h3 {
 
 
 /* ===== HEADER ===== */
+/* HEADER */
 header {
-    background-color: #0A2540;
-    color: white;
-    padding: 15px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 1000;
+  background-color: #0A2540;
+  color: white;
+  width: 100%;
+  z-index: 1000;
 }
 
+/* NAVBAR */
 .navbar {
   position: relative;
-  min-height: 100px;
-  padding: 10px 20px;
+  padding: 20px 20px 15px;
+  text-align: center;
 }
 
-/* Logo kiri */
+/* LOGO KIRI */
 .nav-left {
   position: absolute;
-  left: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-   ;
+  left: 20px;
+  top: 20px;
 }
 
 .logo {
-  width: 80px;
+  width: 55px;
 }
 
-/* Tengah: judul + menu */
+/* TENGAH */
 .nav-center {
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .nav-center h2 {
   margin: 0;
-  font-size: 40px;
-  font-weight: 600;
+  font-size: 36px;
 }
 
-/* Menu di bawah judul */
+.nav-center p {
+  margin: 6px 0 0;
+  font-size: 14px;
+}
+
+/* MENU */
 .nav-menu {
-  margin-top: 6px;
+  margin-top: 15px;
 }
 
 .nav-menu a {
   color: white;
   text-decoration: none;
-  margin: 0 12px;
-  font-size: 18px;
+  margin: 0 10px;
+  font-size: 16px;
 }
 
-.nav-menu a:hover {
-  color: #1E88E5;
+/* MOBILE */
+@media (max-width: 768px) {
+  .nav-left {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    width: 45px;
+  }
+
+  .nav-center h2 {
+    font-size: 22px;
+  }
+
+  .nav-center p {
+    font-size: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    margin: 0 6px;
+  }
 }
+
 
 /* Section umum */
 section {
@@ -1040,20 +1062,35 @@ footer {
     padding: 12px;
   }
 
+  @media (max-width: 768px) {
   .navbar {
-    min-height: 90px;
-    padding-left: 90px; /* RUANG KHUSUS LOGO */
-    padding-right: 10px;
+    flex-direction: column;
+    align-items: center;
   }
 
-  /* Logo tetap kiri */
   .nav-left {
-    left: 15px;
+    position: static; /* HILANGKAN absolute */
+    margin-bottom: 8px;
   }
 
   .logo {
-    width: 55px; /* tetap */
+    width: 45px; /* logo mengecil tapi TIDAK NUTUP */
   }
+
+  .nav-center h2 {
+    font-size: 22px;
+  }
+
+  .nav-center p {
+    font-size: 12px;
+  }
+
+  .nav-menu a {
+    font-size: 14px;
+    margin: 0 6px;
+  }
+}
+
 
   /* Judul diperkecil agar muat */
   .nav-center h2 {
