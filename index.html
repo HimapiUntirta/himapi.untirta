@@ -546,32 +546,115 @@ header {
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
-  .nav-left {
-    position: absolute;
-    left: 75px;
-    margin-bottom: 10px;
+ @media (max-width: 768px) {
+
+  .navbar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo title"
+      "logo desc"
+      "menu menu";
+    align-items: center;
+    padding: 15px;
+    row-gap: 8px;
   }
 
-  .logo {
-    width: 45px;
+  .nav-left {
+    grid-area: logo;
+    position: static;
+  }
 
+  .nav-left .logo {
+    width: 55px;
+    height: auto;
+  }
+
+  .nav-center {
+    grid-area: title;
+    text-align: left;
   }
 
   .nav-center h2 {
-    font-size: 22px;
-    margin: 0;
+    font-size: 20px;
+    margin: 5px;
+  }
+
+  .nav-center p {
+    grid-area: desc;
+    font-size: 12px;
+    margin: 4px 0 0;
+  }
+
+  .nav-menu {
+    grid-area: menu;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .nav-menu a {
+    display: inline-block;
+    font-size: 14px;
+    margin: 6px 8px;
+  }
+}
+@media (max-width: 768px) {
+
+  .navbar {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo text"
+      "logo text"
+      "menu menu";
+    column-gap: 10px;
+    row-gap: 6px;
+    padding: 14px;
+  }
+
+  .nav-left {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    border-right: 2px solid rgba(255,255,255,0.4); /* GARIS PEMISAH */
+  }
+
+  .nav-left .logo {
+    width: 52px;
+    height: auto;
+  }
+
+  .nav-center {
+    grid-area: text;
+    text-align: left;
+  }
+
+  .nav-center h2 {
+    font-size: 20px;
+    margin: 5px;
+    line-height: 1.1; /* DEKAT */
   }
 
   .nav-center p {
     font-size: 12px;
+    margin: 3px 0 0; /* JARAK DIPERKECIL */
+    line-height: 1.2;
+  }
+
+  .nav-menu {
+    grid-area: menu;
+    text-align: center;
+    margin-top: 8px;
   }
 
   .nav-menu a {
     font-size: 14px;
-    margin: 0 6px;
+    margin: 5px 7px;
+    display: inline-block;
   }
 }
+
 
 
 /* Section umum */
